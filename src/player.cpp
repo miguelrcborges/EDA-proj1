@@ -17,7 +17,7 @@ Player create_player(std::string name, char symbol, bool is_computer, int depth)
   return player;
 }
 
-void Player::play(int *last_move) {
+void Player::play(int last_move[2]) {
   int input;
   char exit_confirmation;
   if (is_computer)
