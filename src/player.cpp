@@ -51,6 +51,7 @@ ask_input:
 
     std::cin >> exit_confirmation;
     exit_confirmation = toupper(exit_confirmation);
+    std::cout << "Input must be either Y or N!" << std::endl;
     if (exit_confirmation == 'N') goto ask_input;
 
   } while (exit_confirmation != 'Y');
