@@ -26,7 +26,7 @@ void Player::play(int last_move[2], Board &board) {
 ask_input:
   std::cout << "Where do you want to play?\n> " << std::endl;
   if (std::cin >> input) {
-    if (input < 1 || input > 8) {
+    if (input < 1 || input > 7) {
       std::cout << "The number must be between 1 a 7!" << std::endl;
       goto ask_input;
     }
@@ -34,7 +34,7 @@ ask_input:
       std::cout << "That column is already stacked!" << std::endl;
       goto ask_input;
     }
-    for (int i = 0; i < 7; i++)
+    for (int i = 1; i <= 7; i++)
       if (board.slots[input][i]) {
         board.slots[input][i] = symbol;
         return;
