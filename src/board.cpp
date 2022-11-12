@@ -31,28 +31,28 @@ bool Board::checkWin(int last_move[2]) {
    /* Checks if horizontal limits are not crossed */
    if (i + last_move[0] > 0 && i + last_move[0] + 3 < 8) { 
      // horizontal win check
-     if ((slots[i + last_move[0]][last_move[1]] == slots[i + last_move[0] + 1][last_move[1]]) and (slots[i + last_move[0] + 1][last_move[1]] == slots[i + last_move[0] + 2][last_move[1]]) and (slots[i + last_move[0] + 2][last_move[1]] == slots[i + last_move[0] + 3][last_move[1]]))
+     if ((slots[i + last_move[0]][last_move[1]] == slots[i + last_move[0] + 1][last_move[1]]) && (slots[i + last_move[0] + 1][last_move[1]] == slots[i + last_move[0] + 2][last_move[1]]) && (slots[i + last_move[0] + 2][last_move[1]] == slots[i + last_move[0] + 3][last_move[1]]))
        return true;
    }
 
    /* Checks if vertical limits are not crossed */
    if (i + last_move[1] > 0 && i + last_move[1] + 3 < 8) { 
      // vertical win check
-     if ((slots[last_move[0]][i + last_move[1]] == slots[last_move[0]][i + last_move[1] + 1]) and (slots[last_move[0]][i + last_move[1] + 1] == slots[last_move[0]][i + last_move[1] + 2]) and (slots[last_move[0]][i + last_move[1] + 2] == slots[last_move[0]][i + last_move[1] + 3]))
+     if ((slots[last_move[0]][i + last_move[1]] == slots[last_move[0]][i + last_move[1] + 1]) && (slots[last_move[0]][i + last_move[1] + 1] == slots[last_move[0]][i + last_move[1] + 2]) && (slots[last_move[0]][i + last_move[1] + 2] == slots[last_move[0]][i + last_move[1] + 3]))
        return true;
    }
 
    /* Checks if negative diagonal limits are not crossed */
    if ((i + last_move[1] > 0 && i + last_move[1] + 3 < 8) && (i + last_move[0] > -1 && i + last_move[0] + 3 < 8)) { 
      // Negative diagonal win check
-     if ((slots[i + last_move[0]][i + last_move[1]] == slots[i + last_move[0] + 1][i + last_move[1] + 1]) and (slots[i + last_move[0] + 1][i + last_move[1] + 1] == slots[i + last_move[0] + 2][i + last_move[1] + 2]) and (slots[i + last_move[0] + 2][i + last_move[1] + 2] == slots[i + last_move[0] + 3][i + last_move[1] + 3]))
+     if ((slots[i + last_move[0]][i + last_move[1]] == slots[i + last_move[0] + 1][i + last_move[1] + 1]) && (slots[i + last_move[0] + 1][i + last_move[1] + 1] == slots[i + last_move[0] + 2][i + last_move[1] + 2]) && (slots[i + last_move[0] + 2][i + last_move[1] + 2] == slots[i + last_move[0] + 3][i + last_move[1] + 3]))
        return true;
    }
 
    /* Checks if limits are not crossed */
    if ((-i + last_move[1] < 8 && -i + last_move[1] - 3 > 0) && (i + last_move[0] > -1 && i + last_move[0] + 3 < 8)) { 
      // Positive diagonal win check
-     if ((slots[i + last_move[0]][-i + last_move[1]] == slots[i + last_move[0] + 1][-i + last_move[1] - 1]) and (slots[i + last_move[0] + 1][-i + last_move[1] - 1] == slots[i + last_move[0] + 2][-i + last_move[1] - 2]) and (slots[i + last_move[0] + 2][-i + last_move[1] - 2] == slots[i + last_move[0] + 3][-i + last_move[1] - 3]))
+     if ((slots[i + last_move[0]][-i + last_move[1]] == slots[i + last_move[0] + 1][-i + last_move[1] - 1]) && (slots[i + last_move[0] + 1][-i + last_move[1] - 1] == slots[i + last_move[0] + 2][-i + last_move[1] - 2]) && (slots[i + last_move[0] + 2][-i + last_move[1] - 2] == slots[i + last_move[0] + 3][-i + last_move[1] - 3]))
        return true;
    }
  }
