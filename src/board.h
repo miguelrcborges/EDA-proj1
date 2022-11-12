@@ -11,11 +11,11 @@ typedef struct Board {
   char slots[8][8];
 
   /* Function to draw the board on the console */
-  void drawBoard(void);
+  void draw_board(void);
 
   /** Method that checks if the game has ended in the current board state. it uses the last move for more efficiency
    * @param last_move Array containing the coordinantes of the last placed piece
    * @return If the game is over (true) or not.
    */
-  bool checkWin(int last_move[2]);
+  bool check_win(int last_move[2]);
 } Board;

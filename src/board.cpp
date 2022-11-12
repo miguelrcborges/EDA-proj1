@@ -2,7 +2,7 @@
 #include <iostream>
 #include "board.h"
 
-void Board::drawBoard() {
+void Board::draw_board() {
   std::cout << PRINT_YELLOW;
 
   for (char i = '1'; i <= '7'; i++)
@@ -23,7 +23,7 @@ void Board::drawBoard() {
 }
 
 
-bool Board::checkWin(int last_move[2]) {
+bool Board::check_win(int last_move[2]) {
 
   /* There are 4 possible places a given piece can take in a winning move */
  for (int i = -3; i < 1; i++) { 

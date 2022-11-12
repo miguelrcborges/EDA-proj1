@@ -17,7 +17,7 @@ Player create_player(std::string name, char symbol, bool is_computer, int depth)
   return player;
 }
 
-void Player::play(int last_move[2]) {
+void Player::play(int last_move[2], Board &board) {
   int input;
   char exit_confirmation;
   if (is_computer)
@@ -26,12 +26,25 @@ void Player::play(int last_move[2]) {
 ask_input:
   std::cout << "Where do you want to play?\n> " << std::endl;
   if (std::cin >> input) {
-    /* Codigo para por a input */
-    return;
+    if (input < 1 || input > 8) {
+      std::cout << "The number must be between 1 a 7!" << std::endl;
+      goto ask_input;
+    }
+    if (board.slots[input][7] != ' ') {
+      std::cout << "That column is already stacked!" << std::endl;
+      goto ask_input;
+    }
+    for (int i = 0; i < 7; i++)
+      if (board.slots[input][i]) {
+        board.slots[input][i] = symbol;
+        return;
+      }
+    std::cout << "Something wrong happened D:" << std::endl;
+    goto ask_input;
   }
 
   if (!std::cin.eof()) {
-    std::cout << "Invalid input, must be a integer number" << std::endl;
+    std::cout << "Invalid input, must be a integer number." << std::endl;
     std::cin.clear();
 #ifdef __APPLE__
     clearerr(stdin);
