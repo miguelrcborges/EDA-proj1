@@ -1,9 +1,14 @@
 #pragma once
 
+/** ANSI escape code to clear the screen. */
 #define CLEAR_SCR    "\033[2J\033[H"
+/** ANSI escape code to write in red. */
 #define PRINT_RED    "\033[91m"
+/** ANSI escape code to write in green. */
 #define PRINT_GREEN  "\033[92m"
+/** ANSI escape code to write in yellow. */
 #define PRINT_YELLOW "\033[93m"
+/** ANSI escape code to clear applied styles. */
 #define CLEAR_STYLE  "\033[m"
 
 /**

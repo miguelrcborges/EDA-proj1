@@ -19,7 +19,7 @@ typedef struct Board_state {
   /** Character that is about to play in the current state. */
   char symbol_to_play;
 
-  /** Function to free from memmory the generated child_states. */
+  /** Function to free from memory the generated child_states. */
   void free_child_states();
 } Board_state;
 
