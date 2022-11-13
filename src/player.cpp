@@ -7,7 +7,7 @@
 #include <cstdio>
 #endif
 
-Player create_player(std::string name, char symbol, bool is_computer, int depth) {
+Player create_player(char symbol) {
   Player player;
   player.name = name;
   player.is_computer = is_computer;

@@ -20,3 +20,5 @@ typedef struct Board {
    */
   bool check_win(int last_move[2]);
 } Board;
+
+Board create_board();

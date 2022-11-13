@@ -26,10 +26,11 @@ typedef struct Player {
   char symbol;                               
 
   /** Receveis input and updates last_move and Board values. */
-  void play(int last_move[2], Board &board); 
+  void play(Board &board); 
 
 } Player;
 
+char getInput(const std::string& prompt);
 
 /**
  * Function that returns a player that accepts parameters to feed the initial data. Serves as a constructor.
