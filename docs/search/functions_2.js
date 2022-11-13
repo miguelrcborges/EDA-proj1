@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['play_0',['play',['../structPlayer.html#a6e37a01b85b2be421f24eb11c1e9f2cb',1,'Player']]]
+  ['free_5fchild_5fstates_0',['free_child_states',['../structBoard__state.html#a9e73671e68170462e880bf25fc94fe30',1,'Board_state']]]
 ];

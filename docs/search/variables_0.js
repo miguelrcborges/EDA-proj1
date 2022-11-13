@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['depth_0',['depth',['../structPlayer.html#a4768b8782aa99470e23cc721f72e0672',1,'Player']]]
+  ['board_0',['board',['../structBoard__state.html#a34c66ae089f4033cb316492cb12a3d38',1,'Board_state']]]
 ];
