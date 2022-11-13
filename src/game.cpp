@@ -50,5 +50,6 @@ int Game::log_match()
 	}
 	out.close();
 	return 1;
+
 }
 
