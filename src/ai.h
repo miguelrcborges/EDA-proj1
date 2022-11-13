@@ -19,6 +19,9 @@ typedef struct Board_state {
   /** Character that is about to play in the current state. */
   char symbol_to_play;
 
+  /** Last played move. */
+  int last_move[2];
+
   /** Function to free from memory the generated child_states. */
   void free_child_states();
 } Board_state;
@@ -37,9 +40,8 @@ void compute_play(Player &player, Board &board);
  * @param board_state Board_state corresponding to the current board.
  * @param depth How many moves ahead he should analyze.
  * @param isMax Minimax variable to consider if it has to pick the lowest value children, or the highest value one.
- * @return Board_state.value, the evaluation of the Board_state.
  */
-int mini_max(Board_state &board_state, int depth, bool isMax);
+void mini_max(Board_state *board_state, int depth, bool isMax);
 
 /**
  * Function that allocates memmory to the order of the depth parameter.
