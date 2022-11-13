@@ -7,14 +7,15 @@
 #define CLEAR_STYLE  "\033[m"
 
 typedef struct Board {
-  /* 2D Matrix with all possible places to have chips (0s are ignored for convenience) */
+  /** 2D Matrix with all possible places to have chips (0s are ignored for convenience). */
   char slots[8][8];
 
-  /* Function to draw the board on the console */
+  /** Function to draw the board on the console. */
   void draw_board(void);
 
-  /** Method that checks if the game has ended in the current board state. it uses the last move for more efficiency
-   * @param last_move Array containing the coordinantes of the last placed piece
+  /** 
+   * Method that checks if the game has ended in the current board state. it uses the last move for more efficiency.
+   * @param last_move Array containing the coordinantes of the last placed piece.
    * @return If the game is over (true) or not.
    */
   bool check_win(int last_move[2]);
