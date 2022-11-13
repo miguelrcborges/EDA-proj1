@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['slots_0',['slots',['../structBoard.html#aa0f89fc5d12379ee565c4c597d0ded6f',1,'Board']]],
-  ['symbol_1',['symbol',['../structPlayer.html#a01218f5efc53791ed75c77c99fedf0e2',1,'Player']]]
+  ['last_5fmove_0',['last_move',['../structPlayer.html#aab75c7b2ab9dc4c1ab89c1f9692b3e5c',1,'Player']]]
 ];

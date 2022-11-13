@@ -25,8 +25,13 @@ typedef struct Player {
   /** Player symbol in the board. */
   char symbol;                               
 
-  /** Receveis input and updates last_move and Board values. */
-  void play(int last_move[2], Board &board); 
+  /** 
+   * Plays the player move. Updates last_move and Board values. 
+   * 
+   * @param board Current game board.
+   */
+  void play(Board &board); 
+
 
 } Player;
 
@@ -40,4 +45,22 @@ typedef struct Player {
  * @param depth Depth of minimax algorith for the AI (only used if is_computer is true).
  * @return Player with the given data.
  */
-Player create_player(std::string name, char symbol, bool is_computer = false, int depth = 0);
+Player create_player(char symbol);
+
+/**
+ * Function that receives player inputs.
+ *
+ * @param prompt Text that will be displayed before asking input.
+ * @return The char the user inputted.
+ */
+char get_input(const std::string &prompt);
+
+
+/**
+ * Same as getInput, but for integers.
+ * @see getInput.
+ *
+ * @param prompt Text that will be displayed before asking input.
+ * @return The int the user inputted.
+ */
+int get_int(const std::string &prompt);

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['is_5fcomputer_0',['is_computer',['../structPlayer.html#a08404b5bee55e32c7c4204fe73ce4c9e',1,'Player']]]
+  ['free_5fchild_5fstates_0',['free_child_states',['../structBoard__state.html#a9e73671e68170462e880bf25fc94fe30',1,'Board_state']]]
 ];
