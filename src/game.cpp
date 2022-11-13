@@ -30,9 +30,9 @@ Game create_game()
 
 int Game::log_match()
 {
-	ofstream out;
+  std::ofstream out;
 	out.open("match logs.txt");
-	if (game.board.check_win)
+	if (board.check_win())
 	{
 		out << times_year << " - " << times_mon << " - " << times_day << " / " << times_hour << ":" << times_min<< " - " << " 1)" << players[0].name;
 		if (players[0].is_computer)
