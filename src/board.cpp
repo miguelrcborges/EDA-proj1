@@ -26,6 +26,7 @@ void Board::draw_board() {
   for (char i = 'A'; i <= 'G'; i++)
     std::cout << std::setw(5) << i;
   std::cout << std::endl;
+  std::cout << CLEAR_STYLE;
 }
 
 
