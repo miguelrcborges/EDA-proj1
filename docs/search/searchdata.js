@@ -1,9 +1,9 @@
 var indexSectionsWithContent =
 {
-  0: "bcdfilnpsv",
-  1: "bp",
-  2: "cdfp",
-  3: "bcdilnsv",
+  0: "bcdfgilnpstv",
+  1: "bgp",
+  2: "cdfglp",
+  3: "bcdilnpstv",
   4: "c"
 };
 
