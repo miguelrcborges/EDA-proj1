@@ -25,6 +25,7 @@ typedef struct Player {
   /** Player symbol in the board. */
   char symbol;                               
 
+
   /** 
    * Plays the player move. Updates last_move and Board values. 
    * 
@@ -32,9 +33,9 @@ typedef struct Player {
    */
   void play(Board &board); 
 
-
 } Player;
 
+char getInput(const std::string& prompt);
 
 /**
  * Function that returns a player that accepts parameters to feed the initial data. Serves as a constructor.
