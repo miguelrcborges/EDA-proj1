@@ -1,4 +1,6 @@
 #include <algorithm>
+#include <vector>
+#include <cstdlib>
 #include "ai.h"
 
 void Board_state::free_child_states() {
@@ -24,7 +26,21 @@ void compute_play(Player &player, Board &board) {
     if (current_state.child_states[i] != NULL)
       mini_max(current_state.child_states[i], player.depth, true);
   }
+
+  std::vector<int> possible_indexes;
+  for (int i = 1; possible_indexes.size() != 0; i--)
+    for (int x = 0; x < 7; x++)
+      if (current_state.child_states[x]->value == i)
+        possible_indexes.push_back(x);
+
   current_state.free_child_states();
+  int column_to_play = possible_indexes[rand() % possible_indexes.size()];
+  for (int row = 0; row < 7; row++) {
+    if (board.slots[column_to_play][row] == ' ') {
+      board.slots[column_to_play][row];
+      break;
+    }
+  }
 }
 
 
@@ -64,6 +80,24 @@ void mini_max(Board_state *board_state, int depth, bool isMax) {
     board_state->value = isMax ? 1 : -1;
     return;
   }
-  
+
+  if (depth <= 0)
+    board_state->value = 0;
+
+  for (int i = 0; i <= 6; i++) {
+    if (board_state->child_states[i] != NULL)
+      mini_max(board_state, depth - 1, !isMax);
+  }
+
+  board_state->value = isMax ? -2 : 2;
+  for (int i = 0; i <= 6; i++) {
+    if (isMax) {
+      if (board_state->value < board_state->child_states[i]->value)
+        board_state->value = board_state->child_states[i]->value;
+    } else {
+      if (board_state->value > board_state->child_states[i]->value)
+        board_state->value = board_state->child_states[i]->value;
+    }
+  }
 
 }

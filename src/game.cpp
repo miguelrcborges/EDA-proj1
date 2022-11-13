@@ -30,9 +30,9 @@ Game create_game()
 
 int Game::log_match()
 {
-	ofstream out;
+  std::ofstream out;
 	out.open("match logs.txt");
-	if (game.board.check_win)
+	if (board.check_win())
 	{
 		out << times //2022 - 10 - 15 / 09:05 – 1)computador vs 2)Pedro Costa – vencedor : 2 .
 	}
