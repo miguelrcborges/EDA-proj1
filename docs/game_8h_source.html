@@ -86,22 +86,22 @@ $(function() {
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment">/*</span></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment">* Game type - this type handles game-related information like the current players and turn</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment">* but also the board and time of play</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment">* but also the board and time of play.</span></div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment">*/</span></div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="structGame.html">   13</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="structGame.html">Game</a> {</div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="structGame.html#aef6ba37517324fc3469dfa65d6f92d21">   15</a></span>  <span class="keywordtype">int</span> <a class="code hl_variable" href="structGame.html#aef6ba37517324fc3469dfa65d6f92d21">turn</a>;</div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="structGame.html#a8f8d800a22da148fbca3b2c2a7155d35">   17</a></span>  <a class="code hl_struct" href="structPlayer.html">Player</a> <a class="code hl_variable" href="structGame.html#a8f8d800a22da148fbca3b2c2a7155d35">players</a>[2];</div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="structGame.html#af5bc546b0c766ecf2f7e008f750832ed">   19</a></span>  <a class="code hl_struct" href="structBoard.html">Board</a> <a class="code hl_variable" href="structGame.html#af5bc546b0c766ecf2f7e008f750832ed">board</a>;</div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="structGame.html#af03258c09317ebbe2f854fd77c2693bf">   21</a></span>  tm *<a class="code hl_variable" href="structGame.html#af03258c09317ebbe2f854fd77c2693bf">times</a>;</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="structGame.html#a729bdcb8431c940cdfc5b491adf1220c">game_loop</a>();</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>  <span class="keywordtype">int</span> <a class="code hl_function" href="structGame.html#a1d40ebad61bb08b087516a70a96f8336">log_match</a>();</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>} <a class="code hl_struct" href="structGame.html">Game</a>;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="structGame.html#a729bdcb8431c940cdfc5b491adf1220c">game_loop</a>();</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>  <span class="keywordtype">int</span> <a class="code hl_function" href="structGame.html#a1d40ebad61bb08b087516a70a96f8336">log_match</a>();</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>} <a class="code hl_struct" href="structGame.html">Game</a>;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><a class="code hl_struct" href="structGame.html">Game</a> create_game();</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><a class="code hl_struct" href="structGame.html">Game</a> create_game();</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
 <div class="ttc" id="astructBoard_html"><div class="ttname"><a href="structBoard.html">Board</a></div><div class="ttdef"><b>Definition:</b> board.h:17</div></div>
 <div class="ttc" id="astructGame_html"><div class="ttname"><a href="structGame.html">Game</a></div><div class="ttdef"><b>Definition:</b> game.h:13</div></div>
 <div class="ttc" id="astructGame_html_a1d40ebad61bb08b087516a70a96f8336"><div class="ttname"><a href="structGame.html#a1d40ebad61bb08b087516a70a96f8336">Game::log_match</a></div><div class="ttdeci">int log_match()</div><div class="ttdef"><b>Definition:</b> game.cpp:32</div></div>
