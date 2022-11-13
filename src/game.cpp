@@ -2,10 +2,11 @@
 #include "board.h"
 #include "player.h"
 #include <iostream>
+#include <fstream>
 #include <string>
 #include <ctime>
 
-bool Game::game_loop()
+void Game::game_loop()
 {
 	while (turn <= 49) {
 		players[(turn - 1) % 2].play(board);
@@ -13,7 +14,6 @@ bool Game::game_loop()
 			break;
 	}
 	log_match();
-	
 }
 
 
@@ -24,7 +24,8 @@ Game create_game()
 	game.players[0] = create_player('O');
 	game.players[1] = create_player('X');
 	game.board = create_board();
-	game.times = localtime(time(NULL));
+  time_t current_time = time(NULL);
+	game.times = localtime(&current_time);
 	return game;
 }
 
@@ -32,32 +33,31 @@ int Game::log_match()
 {
   std::ofstream out;
 	out.open("match logs.txt");
-	if (board.check_win())
+	out << times->tm_year << " - " << times->tm_mon << " - " << times->tm_mday << " / " << times->tm_hour << ":" << times->tm_min << " - " << " 1)" << players[0].name;
+
+	if (players[0].is_computer)
 	{
-		out << times_year << " - " << times_mon << " - " << times_day << " / " << times_hour << ":" << times_min<< " - " << " 1)" << players[0].name;
-		if (players[0].is_computer)
-		{
-			out << "(CPU) ";
-		}
-		out << " vs 2)" << players[1].name;
-		if (players[1].is_computer)
-		{
-			out << "(CPU) ";
-		}
-		out << " - vencedor : ";
-		if (players[turn % 2] == 0)
-		{
-			out << output_string << "1) " << players[0].name;
-		}
-		else
-		{
-			out << output_string << "2) " << players[1].name;
-		}
-		if (players[turn % 2].is_computer)
-		{
-			out << " (CPU)" << std::endl;
-		}
+		out << "(CPU) ";
 	}
+	out << " vs 2)" << players[1].name;
+	if (players[1].is_computer)
+	{
+		out << "(CPU) ";
+	}
+	out << " - vencedor : ";
+	if (turn % 2 == 0)
+	{
+		out << "1) " << players[0].name;
+	}
+	else
+	{
+		out << "2) " << players[1].name;
+	}
+	if (players[turn % 2].is_computer)
+	{
+		out << " (CPU)" << std::endl;
+	}
+	
 	out.close();
 	return 1;
 

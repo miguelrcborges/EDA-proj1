@@ -18,12 +18,12 @@ typedef struct Game {
   /** Board of game */
   Board board;
   /** Inital time of game */
-  tm times;
+  tm *times;
   /** 
   * Loop of gameplay
   * @return Play again condition
   */
-  bool game_loop();
+  void game_loop();
   /**
   * Function that outputs the results of the matches and the time to a file.
   * @return 0 if successful, and 1 if not
