@@ -34,7 +34,8 @@ int Game::log_match()
 	out.open("match logs.txt");
 	if (game.board.check_win)
 	{
-		output_string = times_year << " - " << times_mon << " - " << times_day << " / " << times_hour << ":" << times_min << " - " << " 1)" << players[0].name << " vs 2)" << players[1].name << " - vencedor : ";
+		output_string = times_year << " - " << times_mon << " - " << times_day << " / " << times_hour << ":" << times_min 
+			<< " - " << " 1)" << players[0].name << " vs 2)" << players[1].name << " - vencedor : ";
 		if (players->is_computer)
 		{
 			output_string = +"(CPU) ";
