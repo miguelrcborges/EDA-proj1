@@ -34,7 +34,21 @@ int Game::log_match()
 	out.open("match logs.txt");
 	if (game.board.check_win)
 	{
-		out << times //2022 - 10 - 15 / 09:05 – 1)computador vs 2)Pedro Costa – vencedor : 2 .
+		output_string = times_year << " - " << times_mon << " - " << times_day << " / " << times_hour << ":" << times_min << " - " << " 1)" << players[0].name << " vs 2)" << players[1].name << " - vencedor : ";
+		if (players->is_computer)
+		{
+			output_string = +"(CPU) ";
+		}
+		if (players[turn % 2] == 0)
+		{
+			out << output_string << "1) " << players[0].name;
+		}
+		else
+		{
+			out << output_string << "2) " << players[1].name;
+		}
 	}
+	out.close();
+	return 1;
 }
 
