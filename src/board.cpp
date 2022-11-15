@@ -2,15 +2,17 @@
 #include <iostream>
 #include "board.h"
 
+extern const int board_side;
+
 void Board::draw_board() {
   std::cout << PRINT_YELLOW;
-  for (char i = 'A'; i <= 'G'; i++)
+  for (char i = 'A'; i < 'A' + BOARD_SIZE; i++)
     std::cout << std::setw(5) << i;
   std::cout << std::endl;
 
 
-  for (int y = 6; y >= 0; y--) {
-    for (int x = 0; x < 7; x++) {
+  for (int y = BOARD_SIZE - 1; y >= 0; y--) {
+    for (int x = 0; x < BOARD_SIZE; x++) {
       if (slots[x][y] == 'X')
         std::cout << PRINT_RED;
       else if (slots[x][y] == 'O')
@@ -23,7 +25,7 @@ void Board::draw_board() {
 
 
   std::cout << PRINT_YELLOW;
-  for (char i = 'A'; i <= 'G'; i++)
+  for (char i = 'A'; i < 'A' + BOARD_SIZE; i++)
     std::cout << std::setw(5) << i;
   std::cout << std::endl;
   std::cout << CLEAR_STYLE;
@@ -36,28 +38,28 @@ bool Board::check_win(int last_move[2]) {
  for (int i = -3; i < 1; i++) { 
 
    /* Checks if horizontal limits are not crossed */
-   if (i + last_move[0] > -1 && i + last_move[0] + 3 < 7) { 
+   if (i + last_move[0] > -1 && i + last_move[0] + 3 < BOARD_SIZE) { 
      // horizontal win check
      if ((slots[i + last_move[0]][last_move[1]] == slots[i + last_move[0] + 1][last_move[1]]) && (slots[i + last_move[0] + 1][last_move[1]] == slots[i + last_move[0] + 2][last_move[1]]) && (slots[i + last_move[0] + 2][last_move[1]] == slots[i + last_move[0] + 3][last_move[1]]))
        return true;
    }
 
    /* Checks if vertical limits are not crossed */
-   if (i + last_move[1] > -1 && i + last_move[1] + 3 < 7) { 
+   if (i + last_move[1] > -1 && i + last_move[1] + 3 < BOARD_SIZE) { 
      // vertical win check
      if ((slots[last_move[0]][i + last_move[1]] == slots[last_move[0]][i + last_move[1] + 1]) && (slots[last_move[0]][i + last_move[1] + 1] == slots[last_move[0]][i + last_move[1] + 2]) && (slots[last_move[0]][i + last_move[1] + 2] == slots[last_move[0]][i + last_move[1] + 3]))
        return true;
    }
 
    /* Checks if negative diagonal limits are not crossed */
-   if ((i + last_move[1] > -1 && i + last_move[1] + 3 < 7) && (i + last_move[0] > -1 && i + last_move[0] + 3 < 7)) { 
+   if ((i + last_move[1] > -1 && i + last_move[1] + 3 < BOARD_SIZE) && (i + last_move[0] > -1 && i + last_move[0] + 3 < BOARD_SIZE)) { 
      // Negative diagonal win check
      if ((slots[i + last_move[0]][i + last_move[1]] == slots[i + last_move[0] + 1][i + last_move[1] + 1]) && (slots[i + last_move[0] + 1][i + last_move[1] + 1] == slots[i + last_move[0] + 2][i + last_move[1] + 2]) && (slots[i + last_move[0] + 2][i + last_move[1] + 2] == slots[i + last_move[0] + 3][i + last_move[1] + 3]))
        return true;
    }
 
    /* Checks if limits are not crossed */
-   if ((-i + last_move[1] < 7 && -i + last_move[1] - 3 > -1) && (i + last_move[0] > -1 && i + last_move[0] + 3 < 7)) { 
+   if ((-i + last_move[1] < BOARD_SIZE && -i + last_move[1] - 3 > -1) && (i + last_move[0] > -1 && i + last_move[0] + 3 < BOARD_SIZE)) { 
      // Positive diagonal win check
      if ((slots[i + last_move[0]][-i + last_move[1]] == slots[i + last_move[0] + 1][-i + last_move[1] - 1]) && (slots[i + last_move[0] + 1][-i + last_move[1] - 1] == slots[i + last_move[0] + 2][-i + last_move[1] - 2]) && (slots[i + last_move[0] + 2][-i + last_move[1] - 2] == slots[i + last_move[0] + 3][-i + last_move[1] - 3]))
        return true;
@@ -69,8 +71,8 @@ bool Board::check_win(int last_move[2]) {
 
 Board create_board() {
   Board board;
-  for (int i = 0; i < 7; i++)
-    for (int ii = 0; ii < 7; ii++)
+  for (int i = 0; i < BOARD_SIZE; i++)
+    for (int ii = 0; ii < BOARD_SIZE; ii++)
       board.slots[i][ii] = ' ';
 
   return board;

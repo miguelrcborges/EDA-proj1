@@ -2,6 +2,7 @@
 
 #include "board.h"
 #include "player.h"
+#include "config.h"
 
 /**
  * Board_state type. It will be used to board evaluation, so the AI can figure which move it should do.
@@ -14,7 +15,7 @@ typedef struct Board_state {
   int value;
 
   /** Board_states derivated from this one. */
-  Board_state *child_states[7];
+  Board_state *child_states[BOARD_SIZE];
 
   /** Character that is about to play in the current state. */
   char symbol_to_play;

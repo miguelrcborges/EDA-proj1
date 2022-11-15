@@ -8,6 +8,8 @@
 #include <cstdio>
 #endif
 
+extern const int board_side;
+
 Player create_player(char symbol) {
   Player player;
   char input;
@@ -28,7 +30,11 @@ Player create_player(char symbol) {
 
   player.is_computer = input == 'Y';
   if (player.is_computer) {
-    player.depth = get_int("What is the computer difficulty?\n> ");
+    player.depth = get_int("What is the computer difficulty? max: 8\n> ");
+    if (player.depth > 8) {
+      std::cout << "The difficulty will be set to 8." << std::endl;
+      player.depth = 8;
+    }
   }
 
   return player;
@@ -51,12 +57,12 @@ void Player::play(Board &board) {
       continue;
     }
 
-    if (board.slots[column][6] != ' ') {
+    if (board.slots[column][BOARD_SIZE-1] != ' ') {
       std::cout << "That column is already stacked!" << std::endl;
       continue;
     }
 
-    for (int i = 0; i <= 6; i++) {
+    for (int i = 0; i < BOARD_SIZE; i++) {
       if (board.slots[column][i] == ' ') {
         board.slots[column][i] = symbol;
         last_move[0] = column;
