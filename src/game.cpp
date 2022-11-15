@@ -9,7 +9,6 @@
 
 void Game::game_loop()
 {
-	bool check;
 	while (turn < 49) { //alterar o 49 aqui
 		board.draw_board();
 		players[(turn - 1) % 2].play(board);
