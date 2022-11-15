@@ -18,7 +18,7 @@ void Game::game_loop()
   board.draw_board();
   if (board.check_win(players[turn % 2].last_move))
   {
-	  std::cout << "Winner is " << players[turn % 2].name << " ! Congratulations! " << std::endl;
+	  std::cout << "Winner is " << players[turn % 2].name << "! Congratulations! " << std::endl;
   }
   else
   {
@@ -48,12 +48,12 @@ int Game::log_match()
 
 	if (players[0].is_computer)
 	{
-		out << " (CPU) ";
+		out << " (CPU nivel - " << players[0].depth << ")"  ;
 	}
 	out << " vs 2) " << players[1].name;
 	if (players[1].is_computer)
 	{
-		out << " (CPU) ";
+		out << " (CPU- " << players[1].depth << ")" ;
 	}
 	if (board.check_win(players[turn % 2].last_move))
 	{
@@ -68,12 +68,12 @@ int Game::log_match()
 		}
 		if (players[turn % 2].is_computer)
 		{
-			out << " (CPU)\n";
+			out << " (CPU- " << players[turn %2].depth << ")" \n";
 		}
 	}
 	else
 	{
-		out << " - Empate! ";
+		out << " - Empate. ";
 	}
 	out.close();
 	return 1;
