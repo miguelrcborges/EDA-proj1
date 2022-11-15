@@ -1,1 +1,9 @@
-122 - 10 - 15 / 10:18 -  1)mm vs 2)ll(CPU)  - vencedor : 1) mm
+122 - 10 - 15 / 10:36 -  1)a vs 2)Eee(CPU)  - vencedor : 2) Eee (CPU)
+122 - 10 - 15 / 10:38 -  1)teste vs 2)Computador opzao(CPU)  - vencedor : 1) teste122 - 10 - 15 / 10:39 -  1)a(CPU)  vs 2)b(CPU)  - vencedor : 2) b (CPU)
+122 - 10 - 15 / 10:41 -  1)aa(CPU)  vs 2)bb(CPU)  - vencedor : 2) bb (CPU)
+122 - 10 - 15 / 11:29 -  1)miguel vs 2)pc(CPU)  - vencedor : 2) pc (CPU)
+122 - 10 - 15 / 11:31 -  1)miguel vs 2)pc(CPU)  - vencedor : 1) miguel122 - 10 - 15 / 11:32 -  1)pc1(CPU)  vs 2)pc2(CPU)  - vencedor : 2) pc2 (CPU)
+122 - 10 - 15 / 11:58 -  1)miguel vs 2)y(CPU)  - vencedor : 1) miguel122 - 10 - 15 / 11:59 -  1)miguel vs 2)pc(CPU)  - vencedor : 1) miguel122 - 10 - 15 / 12:7 -  1)miguel vs 2)pc(CPU)  - vencedor : 2) pc (CPU)
+122 - 10 - 15 / 12:8 -  1)tomas vs 2)pc(CPU)  - vencedor : 2) pc (CPU)
+122 - 10 - 15 / 12:11 -  1)tomas vs 2)pc(CPU)  - vencedor : 2) pc (CPU)
+122 - 10 - 15 / 12:17 -  1)miguel vs 2)cc(CPU)  - vencedor : 2) cc (CPU)

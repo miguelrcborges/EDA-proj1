@@ -58,7 +58,7 @@ int Game::log_match()
 	}
 	if (players[turn % 2].is_computer)
 	{
-		out << " (CPU)" << std::endl;
+		out << " (CPU)\n";
 	}
 	
 	out.close();

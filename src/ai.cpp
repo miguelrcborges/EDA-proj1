@@ -1,6 +1,7 @@
 #include <algorithm>
 #include <vector>
 #include <cstdlib>
+#include <iostream>
 #include "ai.h"
 
 void Board_state::free_child_states() {
@@ -15,8 +16,26 @@ void Board_state::free_child_states() {
 
 
 void compute_play(Player &player, Board &board) {
-  Board_state current_state;
+  int column_to_play;
+  if (player.depth <= 0) {
+    std::vector<int> free_columns;
+    for (int i = 0; i < 7; i++)
+      if (board.slots[i][6] == ' ')
+        free_columns.push_back(i);
+    column_to_play = free_columns[rand() % free_columns.size()];
+    for (int row = 0; row < 7; row++) {
+      if (board.slots[column_to_play][row] == ' ') {
+        board.slots[column_to_play][row] = player.symbol;
+        player.last_move[0] = column_to_play;
+        player.last_move[1] = row;
+        std::cout << "The cpu played on " << (char) ('A' + (char) column_to_play) << ".\n";
+        break;
+      }
+    }
+    return;
+  }
 
+  Board_state current_state;
   current_state.symbol_to_play = player.symbol;
 
   std::copy(&board.slots[0][0], &board.slots[6][6], &current_state.board.slots[0][0]);
@@ -24,20 +43,25 @@ void compute_play(Player &player, Board &board) {
   
   for (int i = 0; i < 7; i++) {
     if (current_state.child_states[i] != NULL)
-      mini_max(current_state.child_states[i], player.depth, true);
+      mini_max(current_state.child_states[i], player.depth - 1, true);
   }
 
   std::vector<int> possible_indexes;
-  for (int i = 1; possible_indexes.size() != 0; i--)
+  for (int i = 1; possible_indexes.size() == 0; i--)
     for (int x = 0; x < 7; x++)
-      if (current_state.child_states[x]->value == i)
-        possible_indexes.push_back(x);
+      if (current_state.child_states[x] != NULL)
+        if (current_state.child_states[x]->value == i)
+          possible_indexes.push_back(x);
 
   current_state.free_child_states();
-  int column_to_play = possible_indexes[rand() % possible_indexes.size()];
+  column_to_play = possible_indexes[rand() % possible_indexes.size()];
+
   for (int row = 0; row < 7; row++) {
     if (board.slots[column_to_play][row] == ' ') {
       board.slots[column_to_play][row] = player.symbol;
+      player.last_move[0] = column_to_play;
+      player.last_move[1] = row;
+      std::cout << "The CPU " << player.name << " played on " << (char) ('A' + (char) column_to_play) << ".\n";
       break;
     }
   }
@@ -75,27 +99,30 @@ void generate_states(Board_state *parent, int depth) {
 }
 
 
-void mini_max(Board_state *board_state, int depth, bool isMax) {
+void mini_max(Board_state *board_state, int depth, bool was_my_turn) {
   if (board_state->board.check_win(board_state->last_move)) {
-    board_state->value = isMax ? 1 : -1;
+    board_state->value = was_my_turn ? 1 : -1;
     return;
   }
 
-  if (depth <= 0)
+  if (depth <= 0) {
     board_state->value = 0;
+    return;
+  }
 
   for (int i = 0; i <= 6; i++) {
     if (board_state->child_states[i] != NULL)
-      mini_max(board_state, depth - 1, !isMax);
+      mini_max(board_state->child_states[i], depth - 1, !was_my_turn);
   }
 
-  board_state->value = isMax ? -2 : 2;
+  board_state->value = was_my_turn ? 2 : -2;
   for (int i = 0; i <= 6; i++) {
-    if (isMax) {
-      if (board_state->value < board_state->child_states[i]->value)
+    if (board_state->child_states[i] == NULL) continue;
+    if (was_my_turn) {
+      if (board_state->value > board_state->child_states[i]->value)
         board_state->value = board_state->child_states[i]->value;
     } else {
-      if (board_state->value > board_state->child_states[i]->value)
+      if (board_state->value < board_state->child_states[i]->value)
         board_state->value = board_state->child_states[i]->value;
     }
   }

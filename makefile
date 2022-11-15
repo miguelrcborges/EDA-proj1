@@ -26,5 +26,5 @@ run: $(OUTPUT)
 
 
 debug: bin/debug
-bin/debug: src/*.c
-	$(CC) $^ -o $@ $(DEBUG)
+bin/debug: src/*.cpp
+	$(CXX) $^ -o $@ $(DEBUG)

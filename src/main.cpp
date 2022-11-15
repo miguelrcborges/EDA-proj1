@@ -2,8 +2,10 @@
 #include "player.h"
 #include <iostream>
 #include <cctype>
+#include <cstdlib>
 
 int main() {
+  srand(time(NULL));
   for (; ;) {
     Game game = create_game();
     game.game_loop();
