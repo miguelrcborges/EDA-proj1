@@ -20,7 +20,7 @@ void compute_play(Player &player, Board &board) {
   current_state.symbol_to_play = player.symbol;
 
   std::copy(&board.slots[0][0], &board.slots[6][6], &current_state.board.slots[0][0]);
-  generate_states(current_state, player.depth);
+  generate_states(&current_state, player.depth);
   
   for (int i = 0; i < 7; i++) {
     if (current_state.child_states[i] != NULL)
@@ -37,7 +37,7 @@ void compute_play(Player &player, Board &board) {
   int column_to_play = possible_indexes[rand() % possible_indexes.size()];
   for (int row = 0; row < 7; row++) {
     if (board.slots[column_to_play][row] == ' ') {
-      board.slots[column_to_play][row];
+      board.slots[column_to_play][row] = player.symbol;
       break;
     }
   }

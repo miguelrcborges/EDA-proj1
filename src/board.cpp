@@ -9,8 +9,8 @@ void Board::draw_board() {
   std::cout << std::endl;
 
 
-  for (int y = 0; y <= 7; y++) {
-    for (int x = 0; x <= 7; x++) {
+  for (int y = 6; y >= 0; y--) {
+    for (int x = 0; x < 7; x++) {
       if (slots[x][y] == 'X')
         std::cout << PRINT_RED;
       else if (slots[x][y] == 'O')

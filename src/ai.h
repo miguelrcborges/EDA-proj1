@@ -49,4 +49,4 @@ void mini_max(Board_state *board_state, int depth, bool isMax);
  * @param parent Parent Board_state that will receive the Board_state.child_states.
  * @param depth How many turns ahead the AI will see.
  */
-void generate_states(Board_state &parent, int depth);
+void generate_states(Board_state *parent, int depth);

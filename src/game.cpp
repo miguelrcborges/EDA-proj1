@@ -6,13 +6,16 @@
 #include <string>
 #include <ctime>
 
+
 void Game::game_loop()
 {
 	while (turn <= 49) {
+    board.draw_board();
 		players[(turn - 1) % 2].play(board);
-		if (!board.check_win(players[++turn % 2].last_move))
+		if (board.check_win(players[++turn % 2].last_move))
 			break;
 	}
+  board.draw_board();
 	log_match();
 }
 

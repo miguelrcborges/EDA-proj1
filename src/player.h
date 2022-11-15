@@ -54,7 +54,7 @@ Player create_player(char symbol);
  * @param prompt Text that will be displayed before asking input.
  * @return The char the user inputted.
  */
-char get_input(const std::string &prompt);
+char get_input(std::string prompt);
 
 
 /**
@@ -64,4 +64,4 @@ char get_input(const std::string &prompt);
  * @param prompt Text that will be displayed before asking input.
  * @return The int the user inputted.
  */
-int get_int(const std::string &prompt);
+int get_int(std::string prompt);

@@ -1,6 +1,7 @@
 #include <cctype>
 #include <iostream>
 #include <cstdlib>
+#include "ai.h"
 #include "player.h"
 
 #ifdef __APPLE__
@@ -38,10 +39,10 @@ void Player::play(Board &board) {
   char input;
   int column;
   if (is_computer)
-    return;
+    return compute_play(*this, board);
 
   while (true) {
-    input = getInput("Where do you want to play, " + name + "?\n> ");
+    input = get_input("Where do you want to play, " + name + "?\n> ");
     input = toupper(input);
     column = input - 'A';
 
@@ -50,15 +51,15 @@ void Player::play(Board &board) {
       continue;
     }
 
-    if (board.slots[column][6] == ' ') {
+    if (board.slots[column][6] != ' ') {
       std::cout << "That column is already stacked!" << std::endl;
       continue;
     }
 
     for (int i = 0; i <= 6; i++) {
-      if (board.slots[column][i]) {
-        board.slots[input][i] = symbol;
-        last_move[0] = input;
+      if (board.slots[column][i] == ' ') {
+        board.slots[column][i] = symbol;
+        last_move[0] = column;
         last_move[1] = i;
         return;
       } 
@@ -69,13 +70,15 @@ void Player::play(Board &board) {
 }
 
 
-char get_input(const std::string &prompt) {
+char get_input(std::string prompt) {
   char input;
 ask_input:
   std::cout << prompt;
 
-  if (std::cin >> input)
+  if (std::cin >> input) {
+    std::cin.ignore(1000, '\n');
     return input;
+  }
 
   do {
     std::cout << "Do you really want to quit? (Y/N)" << std::endl;
@@ -99,14 +102,16 @@ ask_input:
 }
 
 
-int get_int(const std::string &prompt) {
+int get_int(std::string prompt) {
   char exit_confirmation;
   int input;
 ask_input:
   std::cout << prompt;
 
-  if (std::cin >> input)
+  if (std::cin >> input) {
+    std::cin.ignore(1000, '\n');
     return input;
+  }
 
   do {
     std::cout << "Do you really want to quit? (Y/N)" << std::endl;
