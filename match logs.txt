@@ -7,3 +7,4 @@
 122 - 10 - 15 / 12:8 -  1)tomas vs 2)pc(CPU)  - vencedor : 2) pc (CPU)
 122 - 10 - 15 / 12:11 -  1)tomas vs 2)pc(CPU)  - vencedor : 2) pc (CPU)
 122 - 10 - 15 / 12:17 -  1)miguel vs 2)cc(CPU)  - vencedor : 2) cc (CPU)
+2022 - 11 - 15 / 13:28 -  1) miguel vs 2) pVaco (CPU)  - vencedor : 2) pVaco (CPU)
