@@ -35,7 +35,7 @@ Game create_game()
 int Game::log_match()
 {
   std::ofstream out;
-	out.open("match logs.txt");
+	out.open("match logs.txt", std::ios_base::app);
 	out << times->tm_year << " - " << times->tm_mon << " - " << times->tm_mday << " / " << times->tm_hour << ":" << times->tm_min << " - " << " 1)" << players[0].name;
 
 	if (players[0].is_computer)
