@@ -9,14 +9,23 @@
 
 void Game::game_loop()
 {
-	while (turn <= 49) {
-    board.draw_board();
+	bool check;
+	while (turn < 49) { //alterar o 49 aqui
+		board.draw_board();
 		players[(turn - 1) % 2].play(board);
 		if (board.check_win(players[++turn % 2].last_move))
 			break;
 	}
   board.draw_board();
-	log_match();
+  if (board.check_win(players[turn % 2].last_move))
+  {
+	  std::cout << "Winner is " << players[turn % 2].name << " ! Congratulations! " << std::endl;
+  }
+  else
+  {
+	  std::cout << "There was a draw! " << std::endl;
+  }
+  log_match();
 }
 
 
@@ -36,31 +45,37 @@ int Game::log_match()
 {
   std::ofstream out;
 	out.open("match logs.txt", std::ios_base::app);
-	out << times->tm_year << " - " << times->tm_mon << " - " << times->tm_mday << " / " << times->tm_hour << ":" << times->tm_min << " - " << " 1)" << players[0].name;
+	out << times->tm_year+1900 << " - " << times->tm_mon+1 << " - " << times->tm_mday << " / " << times->tm_hour << ":" << times->tm_min << " - " << " 1) " << players[0].name;
 
 	if (players[0].is_computer)
 	{
-		out << "(CPU) ";
+		out << " (CPU) ";
 	}
-	out << " vs 2)" << players[1].name;
+	out << " vs 2) " << players[1].name;
 	if (players[1].is_computer)
 	{
-		out << "(CPU) ";
+		out << " (CPU) ";
 	}
-	out << " - vencedor : ";
-	if (turn % 2 == 0)
+	if (board.check_win(players[turn % 2].last_move))
 	{
-		out << "1) " << players[0].name;
+		out << " - vencedor : ";
+		if (turn % 2 == 0)
+		{
+			out << "1) " << players[0].name;
+		}
+		else
+		{
+			out << "2) " << players[1].name;
+		}
+		if (players[turn % 2].is_computer)
+		{
+			out << " (CPU)\n";
+		}
 	}
 	else
 	{
-		out << "2) " << players[1].name;
+		out << " - Empate! ";
 	}
-	if (players[turn % 2].is_computer)
-	{
-		out << " (CPU)\n";
-	}
-	
 	out.close();
 	return 1;
 
