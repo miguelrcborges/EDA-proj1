@@ -1,6 +1,7 @@
 #include <iomanip>
 #include <iostream>
 #include "board.h"
+#include "config.h"
 
 extern const int board_side;
 
@@ -34,40 +35,59 @@ void Board::draw_board() {
 
 bool Board::check_win(int last_move[2]) {
 
-  /* There are 4 possible places a given piece can take in a winning move */
- for (int i = -3; i < 1; i++) { 
+		bool win = false;
 
-   /* Checks if horizontal limits are not crossed */
-   if (i + last_move[0] > -1 && i + last_move[0] + 3 < BOARD_SIZE) { 
-     // horizontal win check
-     if ((slots[i + last_move[0]][last_move[1]] == slots[i + last_move[0] + 1][last_move[1]]) && (slots[i + last_move[0] + 1][last_move[1]] == slots[i + last_move[0] + 2][last_move[1]]) && (slots[i + last_move[0] + 2][last_move[1]] == slots[i + last_move[0] + 3][last_move[1]]))
-       return true;
-   }
+		for (int i = -3;i < 1;i++) {
+			//horizontal win check
+			if (!(win) && (i + last_move[0] > -1 && i + last_move[0] + TO_CONNECT - 1 < BOARD_SIZE)) { /*checks if horizontal limits are not crossed*/
+				win = true;
+				for (int n = 1;n < TO_CONNECT;n++) {
+					if (slots[i + last_move[0]][last_move[1]] != slots[i + last_move[0] + n][last_move[1]]) {
+						win = false;
+						break;
+					}
+				}
+			}
+			//vertical win check
+			if (!(win) && (i + last_move[1] > -1 && i + last_move[1] + TO_CONNECT - 1 < BOARD_SIZE)) {/*checks if vertical limits are not crossed*/
+				win = true;
+				for (int n = 1;n < TO_CONNECT;n++) {
+					if (slots[last_move[0]][i + last_move[1]] != slots[last_move[0]][i + last_move[1] + n]) {
+						win = false;
+						break;
+					}
 
-   /* Checks if vertical limits are not crossed */
-   if (i + last_move[1] > -1 && i + last_move[1] + 3 < BOARD_SIZE) { 
-     // vertical win check
-     if ((slots[last_move[0]][i + last_move[1]] == slots[last_move[0]][i + last_move[1] + 1]) && (slots[last_move[0]][i + last_move[1] + 1] == slots[last_move[0]][i + last_move[1] + 2]) && (slots[last_move[0]][i + last_move[1] + 2] == slots[last_move[0]][i + last_move[1] + 3]))
-       return true;
-   }
+				}
 
-   /* Checks if negative diagonal limits are not crossed */
-   if ((i + last_move[1] > -1 && i + last_move[1] + 3 < BOARD_SIZE) && (i + last_move[0] > -1 && i + last_move[0] + 3 < BOARD_SIZE)) { 
-     // Negative diagonal win check
-     if ((slots[i + last_move[0]][i + last_move[1]] == slots[i + last_move[0] + 1][i + last_move[1] + 1]) && (slots[i + last_move[0] + 1][i + last_move[1] + 1] == slots[i + last_move[0] + 2][i + last_move[1] + 2]) && (slots[i + last_move[0] + 2][i + last_move[1] + 2] == slots[i + last_move[0] + 3][i + last_move[1] + 3]))
-       return true;
-   }
+			}
+			//negative diagonal win check
+			if (!(win) && (i + last_move[1] > -1 && i + last_move[1] + TO_CONNECT - 1 < BOARD_SIZE) && (i + last_move[0] > -1 && i + last_move[0] + TO_CONNECT - 1 < BOARD_SIZE)) { /*checks if  limits are not crossed*/
+				win = true;
+				for (int n = 1;n < TO_CONNECT;n++) {
+					if ((slots[i + last_move[0]][i + last_move[1]] != slots[i + last_move[0] + n][i + last_move[1] + n])) {
+						win = false;
+						break;
 
-   /* Checks if limits are not crossed */
-   if ((-i + last_move[1] < BOARD_SIZE && -i + last_move[1] - 3 > -1) && (i + last_move[0] > -1 && i + last_move[0] + 3 < BOARD_SIZE)) { 
-     // Positive diagonal win check
-     if ((slots[i + last_move[0]][-i + last_move[1]] == slots[i + last_move[0] + 1][-i + last_move[1] - 1]) && (slots[i + last_move[0] + 1][-i + last_move[1] - 1] == slots[i + last_move[0] + 2][-i + last_move[1] - 2]) && (slots[i + last_move[0] + 2][-i + last_move[1] - 2] == slots[i + last_move[0] + 3][-i + last_move[1] - 3]))
-       return true;
-   }
- }
+					}
 
- return false;
-}
+
+				}
+			}
+			//positive diagonal win check
+			if (!(win) && (-i + last_move[1] < BOARD_SIZE && -i + last_move[1] - TO_CONNECT + 1 >-1) && (i + last_move[0] > -1 && i + last_move[0] + TO_CONNECT - 1 < BOARD_SIZE)) { /*checks if limits are not crossed*/
+				win = true;
+				for (int n = 1;n < TO_CONNECT;n++) {
+					if ((slots[i + last_move[0]][-i + last_move[1]] != slots[i + last_move[0] + n][-i + last_move[1] - n])) {
+						win = false;
+						break;
+					}
+
+				}
+			}
+		}
+		return win;
+	};
+};
 
 Board create_board() {
   Board board;
