@@ -27,3 +27,9 @@
 2022 - 11 - 15 / 16:10 -  1) a (CPU - 8) vs 2) b (CPU - 8) - vencedor : 1) a (CPU - 8) 
 2022 - 11 - 15 / 16:13 -  1) a (CPU - 10) vs 2) b (CPU - 10) - Empate.
 2022 - 11 - 15 / 16:16 -  1) a (CPU - 6) vs 2) b (CPU - 6) - vencedor : 2) b (CPU - 6) 
+2022 - 11 - 15 / 19:49 -  1) Miguel Borges vs 2) Hyper OP computer (CPU - 8) - vencedor : 2) Hyper OP computer (CPU - 8) 
+2022 - 11 - 15 / 19:51 -  1) Miguel Borges vs 2) CPU Mega OP (CPU - 8) - vencedor : 2) CPU Mega OP (CPU - 8) 
+2022 - 11 - 15 / 20:15 -  1) Miguel Borges vs 2) Computer (CPU - 8) - vencedor : 2) Computer (CPU - 8) 
+2022 - 11 - 15 / 20:16 -  1) a (CPU - 2) vs 2) b (CPU - 6) - vencedor : 2) b (CPU - 6) 
+2022 - 11 - 19 / 16:35 -  1) m vs 2) b (CPU - 5) - vencedor : 1) m2022 - 11 - 19 / 16:41 -  1) m vs 2) y (CPU - 5) - vencedor : 2) y (CPU - 5) 
+2022 - 11 - 19 / 16:42 -  1) m vs 2) pc (CPU - 4) - vencedor : 2) pc (CPU - 4) 

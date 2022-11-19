@@ -15,7 +15,7 @@ typedef struct Board_state {
   int value;
 
   /** Board_states derivated from this one. */
-  Board_state *child_states[BOARD_SIZE];
+  Board_state *child_states[BOARD_WIDTH];
 
   /** Character that is about to play in the current state. */
   char symbol_to_play;

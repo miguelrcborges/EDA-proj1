@@ -52,17 +52,17 @@ void Player::play(Board &board) {
     input = toupper(input);
     column = input - 'A';
 
-    if (input < 'A' || input > 'G') {
+    if (input < 'A' || input > 'A' + BOARD_WIDTH - 1) {
       std::cout << "Your input bust me a letter between A and G!" << std::endl;
       continue;
     }
 
-    if (board.slots[column][BOARD_SIZE-1] != ' ') {
+    if (board.slots[column][BOARD_HEIGHT-1] != ' ') {
       std::cout << "That column is already stacked!" << std::endl;
       continue;
     }
 
-    for (int i = 0; i < BOARD_SIZE; i++) {
+    for (int i = 0; i < BOARD_HEIGHT; i++) {
       if (board.slots[column][i] == ' ') {
         board.slots[column][i] = symbol;
         last_move[0] = column;

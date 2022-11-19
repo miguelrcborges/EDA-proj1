@@ -8,7 +8,7 @@
 
 void Game::game_loop()
 {
-	while (turn < BOARD_SIZE * BOARD_SIZE) { 
+	while (turn < BOARD_HEIGHT * BOARD_WIDTH) { 
 		board.draw_board();
 		players[(turn - 1) % 2].play(board);
 		if (board.check_win(players[++turn % 2].last_move))
@@ -31,8 +31,8 @@ Game create_game()
 {
 	Game game;
 	game.turn = 1;
-	game.players[0] = create_player('O');
-	game.players[1] = create_player('X');
+	game.players[0] = create_player(PLAYER_ONE_SYMBOL);
+	game.players[1] = create_player(PLAYER_TWO_SYMBOL);
 	game.board = create_board();
   time_t current_time = time(NULL);
 	game.times = localtime(&current_time);

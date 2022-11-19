@@ -18,7 +18,7 @@
  */
 typedef struct Board {
   /** 2D Matrix with all possible places to have chips (0s are ignored for convenience). */
-  char slots[BOARD_SIZE][BOARD_SIZE];
+  char slots[BOARD_WIDTH][BOARD_HEIGHT];
 
   /** Function to draw the board on the console. */
   void draw_board(void);
