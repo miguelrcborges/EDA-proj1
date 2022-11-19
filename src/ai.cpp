@@ -83,7 +83,7 @@ void generate_states(Board_state *parent, int depth) {
       continue;
     }
     parent->child_states[i] = new Board_state;
-    parent->child_states[i]->symbol_to_play = parent->symbol_to_play == 'X' ? 'O' : 'X';
+    parent->child_states[i]->symbol_to_play = parent->symbol_to_play == PLAYER_ONE_SYMBOL ? PLAYER_TWO_SYMBOL : PLAYER_ONE_SYMBOL;
     std::copy(&(parent->board.slots[0][0]), &(parent->board.slots[BOARD_WIDTH-1][BOARD_HEIGHT-1]), &(parent->child_states[i]->board.slots[0][0]));
 
     for (int ii = 0; ii < BOARD_HEIGHT; ii++) {
