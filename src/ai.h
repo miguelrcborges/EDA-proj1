@@ -40,9 +40,10 @@ void compute_play(Player &player, Board &board);
  *
  * @param board_state Board_state corresponding to the current board.
  * @param depth How many moves ahead he should analyze.
+ * @param original_depth Depth used before this function starting calling itself recursively. Used for scoring.
  * @param was_my_turn Minimax variable to consider if it has to pick the lowest value children, or the highest value one.
  */
-void mini_max(Board_state *board_state, int depth, bool was_my_turn);
+void mini_max(Board_state *board_state, int depth, int original_depth, bool was_my_turn);
 
 /**
  * Function that allocates memmory to the order of the depth parameter.
