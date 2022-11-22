@@ -17,8 +17,7 @@ Player create_player(char symbol) {
   player.last_move[0] = 0; 
   player.last_move[1] = 0; 
 
-  std::cout << "What should the player name be?\n> ";
-  std::getline(std::cin, player.name);
+  get_string("What should the player name be?\n> ");
 
   while (1) {
     input = get_input("Is this player a computer? (Y/N)\n> ");
@@ -120,15 +119,49 @@ ask_input:
 
   do {
     std::cout << "Do you really want to quit? (Y/N)" << std::endl;
+    bool eof = std::cin.eof();
     if (std::cin.fail()) {
       std::cin.clear();
 #ifdef __APPLE__
       clearerr(stdin);
 #endif
-
-      if (std::cin.peek() != '\n')
-        std::cin.ignore(100,'\n');
     }
+
+    if (!eof && std::cin.peek() != '\n')
+      std::cin.ignore(100,'\n');
+
+    std::cin >> exit_confirmation;
+    exit_confirmation = toupper(exit_confirmation);
+    if (exit_confirmation == 'N') goto ask_input;
+    std::cout << "exit_confirmation must be either Y or N!" << std::endl;
+  } while (exit_confirmation != 'Y');
+
+  std::exit(0);
+}
+
+std::string get_string(std::string prompt) {
+  char exit_confirmation;
+  std::string input;
+ask_input:
+  std::cout << prompt;
+
+  getline(std::cin, input);
+  if (!std::cin.eof()) {
+    return input;
+  }
+
+  do {
+    std::cout << "Do you really want to quit? (Y/N)" << std::endl;
+    bool eof = std::cin.eof();
+    if (std::cin.fail()) {
+      std::cin.clear();
+#ifdef __APPLE__
+      clearerr(stdin);
+#endif
+    }
+
+    if (!eof && std::cin.peek() != '\n')
+      std::cin.ignore(100,'\n');
 
     std::cin >> exit_confirmation;
     exit_confirmation = toupper(exit_confirmation);

@@ -65,3 +65,5 @@ char get_input(std::string prompt);
  * @return The int the user inputted.
  */
 int get_int(std::string prompt);
+
+std::string get_string(std::string prompt);
