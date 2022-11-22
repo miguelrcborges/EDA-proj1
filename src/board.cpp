@@ -57,9 +57,7 @@ bool Board::check_win(int last_move[2]) {
 						win = false;
 						break;
 					}
-
 				}
-
 			}
 			//negative diagonal win check
 			if (!(win) && (i + last_move[1] > -1 && i + last_move[1] + TO_CONNECT - 1 < BOARD_HEIGHT) && (i + last_move[0] > -1 && i + last_move[0] + TO_CONNECT - 1 < BOARD_WIDTH)) { /*checks if  limits are not crossed and if another winning condition hasn't been already found*/
@@ -68,10 +66,7 @@ bool Board::check_win(int last_move[2]) {
 					if ((slots[i + last_move[0]][i + last_move[1]] != slots[i + last_move[0] + n][i + last_move[1] + n])) {
 						win = false;
 						break;
-
 					}
-
-
 				}
 			}
 			//positive diagonal win check
@@ -82,7 +77,6 @@ bool Board::check_win(int last_move[2]) {
 						win = false;
 						break;
 					}
-
 				}
 			}
 		}

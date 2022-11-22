@@ -45,7 +45,7 @@ void compute_play(Player &player, Board &board) {
   
   for (int i = 0; i < BOARD_WIDTH; i++)
     if (current_state.child_states[i] != NULL)
-      mini_max(current_state.child_states[i], player.depth - 1, player.depth - 1, true);
+      mini_max(current_state.child_states[i], player.depth - 1, true);
 
   std::vector<int> possible_indexes;
   for (int x = 0; x < BOARD_WIDTH; x++)
@@ -60,9 +60,9 @@ void compute_play(Player &player, Board &board) {
     }
 
   // DEBUG
-  // for (int i = 0; i < BOARD_WIDTH; i++)
-  //   if (current_state.child_states[i] != NULL)
-  //     std::cout << "Posição " << i << ": " << current_state.child_states[i]->value << std::endl;
+  for (int i = 0; i < BOARD_WIDTH; i++)
+    if (current_state.child_states[i] != NULL)
+      std::cout << "Posição " << i << ": " << current_state.child_states[i]->value << std::endl;
 
   current_state.free_child_states();
   column_to_play = possible_indexes[rand() % possible_indexes.size()];
@@ -110,9 +110,9 @@ void generate_states(Board_state *parent, int depth) {
 }
 
 
-void mini_max(Board_state *board_state, int depth, int original_depth, bool was_my_turn) {
+void mini_max(Board_state *board_state, int depth, bool was_my_turn) {
   if (board_state->board.check_win(board_state->last_move)) {
-    board_state->value = was_my_turn ? depth : depth - original_depth;
+    board_state->value = was_my_turn ? depth : - depth;
     return;
   }
 
@@ -123,7 +123,7 @@ void mini_max(Board_state *board_state, int depth, int original_depth, bool was_
 
   for (int i = 0; i < BOARD_WIDTH; i++) {
     if (board_state->child_states[i] != NULL)
-      mini_max(board_state->child_states[i], depth - 1, original_depth, !was_my_turn);
+      mini_max(board_state->child_states[i], depth - 1, !was_my_turn);
   }
 
   board_state->value = was_my_turn ? INT_MAX : INT_MIN;

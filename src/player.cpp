@@ -53,7 +53,7 @@ void Player::play(Board &board) {
     column = input - 'A';
 
     if (input < 'A' || input > 'A' + BOARD_WIDTH - 1) {
-      std::cout << "Your input bust me a letter between A and " << (char) ('A' + BOARD_WIDTH - 1) << '!' << std::endl;
+      std::cout << "Your input must me a letter between A and " << (char) ('A' + BOARD_WIDTH - 1) << '!' << std::endl;
       continue;
     }
 
