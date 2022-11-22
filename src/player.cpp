@@ -88,16 +88,15 @@ ask_input:
 
   do {
     std::cout << "Do you really want to quit? (Y/N)" << std::endl;
+    bool eof = std::cin.eof();
     if (std::cin.fail()) {
       std::cin.clear();
 #ifdef __APPLE__
       clearerr(stdin);
 #endif
-
-      if (std::cin.peek() != '\n')
-        std::cin.ignore(100,'\n');
     }
-
+    if (!eof && std::cin.peek() != '\n')
+        std::cin.ignore(100, '\n');
     std::cin >> input;
     input = toupper(input);
     if (input == 'N') goto ask_input;
