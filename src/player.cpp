@@ -11,14 +11,14 @@
 
 extern const int board_side;
 
-Player create_player(char symbol) {
+Player create_player(char symbol, std::string number) {
   Player player;
   char input;
   player.symbol = symbol;
   player.last_move[0] = 0; 
   player.last_move[1] = 0; 
 
-  player.name = get_string("What should the player name be?\n> ");
+  player.name = get_string("What should the " + number + " player name be?\n> ");
 
   while (1) {
     input = get_input("Is this player a computer? (Y/N)\n> ");

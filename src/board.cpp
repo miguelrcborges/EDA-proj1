@@ -91,3 +91,4 @@ Board create_board() {
 			board.slots[i][ii] = ' ';
 
 	return board;
+}

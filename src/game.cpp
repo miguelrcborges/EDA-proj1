@@ -31,8 +31,8 @@ Game create_game()
 {
 	Game game;
 	game.turn = 1;
-	game.players[0] = create_player(PLAYER_ONE_SYMBOL);
-	game.players[1] = create_player(PLAYER_TWO_SYMBOL);
+	game.players[0] = create_player(PLAYER_ONE_SYMBOL, "first");
+	game.players[1] = create_player(PLAYER_TWO_SYMBOL, "second");
 	game.board = create_board();
   time_t current_time = time(NULL);
 	game.times = localtime(&current_time);

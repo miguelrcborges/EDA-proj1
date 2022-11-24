@@ -40,13 +40,11 @@ char getInput(const std::string& prompt);
 /**
  * Function that returns a player that accepts parameters to feed the initial data. Serves as a constructor.
  *
- * @param name Player name.
  * @param symbol Symbol that will show up in the board.
- * @param is_computer Boolean that should be true if the player isn't human.
- * @param depth Depth of minimax algorith for the AI (only used if is_computer is true).
+ * @param number String that is used to specify which player is being create. Eg. "first".
  * @return Player with the given data.
  */
-Player create_player(char symbol);
+Player create_player(char symbol, std::string number);
 
 /**
  * Function that receives player inputs.
