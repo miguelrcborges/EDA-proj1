@@ -66,4 +66,12 @@ char get_input(std::string prompt);
  */
 int get_int(std::string prompt);
 
+
+/**
+ * Same as getInput, but for strings.
+ * @see getInput.
+ *
+ * @param prompt Text that will be displayed before asking input.
+ * @return The string the user inputted.
+ */
 std::string get_string(std::string prompt);

@@ -5,7 +5,7 @@
 #include "player.h"
 
 // Needed to be able to clear stdin error flags
-#ifdef __APPLE__
+#ifndef _WIN32
 #include <cstdio>
 #endif
 
@@ -91,29 +91,36 @@ ask_input:
     bool was_it_alone = std::cin.get() == '\n'; 
     if (!was_it_alone) {
       std::cout << "Please, send only one character." << std::endl;
-      std::cin.ignore(100, '\n');
+      std::cin.ignore(100000, '\n');
       goto ask_input;
     }
     return input;
   }
 
   do {
-    std::cout << "Do you really want to quit? (Y/N)" << std::endl;
+    std::cout << "\nDo you really want to quit? (Y/N)\n> ";
     // Checks if the reason why is running this was due to an EOF input
     bool eof = std::cin.eof();
     if (std::cin.fail()) {
       std::cin.clear();
     // Apple std::cin isn't fully cleared with just this.
-#ifdef __APPLE__
+    // On linux it may also be needed, depending on the terminal emulator on use
+#ifndef _WIN32 
       clearerr(stdin);
 #endif
     }
     if (!eof && std::cin.peek() != '\n')
-        std::cin.ignore(100, '\n');
+        std::cin.ignore(100000, '\n');
     std::cin >> input;
+    bool was_it_alone = std::cin.get() == '\n'; 
+    if (!was_it_alone) {
+      std::cout << "Please, send only one character." << std::endl;
+      std::cin.ignore(100000, '\n');
+      continue;
+    }
     input = toupper(input);
     if (input == 'N') goto ask_input;
-    std::cout << "Input must be either Y or N!" << std::endl;
+    std::cout << "Exit confirmation must be either Y or N!" << std::endl;
   } while (input != 'Y');
 
   std::exit(0);
@@ -130,29 +137,35 @@ ask_input:
     bool was_it_alone = std::cin.get() == '\n'; 
     if (!was_it_alone) {
       std::cout << "Please, send only one integer number." << std::endl;
-      std::cin.ignore(100, '\n');
+      std::cin.ignore(100000, '\n');
       goto ask_input;
     }
     return input;
   }
 
   do {
-    std::cout << "Do you really want to quit? (Y/N)" << std::endl;
+    std::cout << "\nDo you really want to quit? (Y/N)\n> ";
     bool eof = std::cin.eof();
     if (std::cin.fail()) {
       std::cin.clear();
-#ifdef __APPLE__
+#ifndef _WIN32
       clearerr(stdin);
 #endif
     }
 
     if (!eof && std::cin.peek() != '\n')
-      std::cin.ignore(100,'\n');
+      std::cin.ignore(100000,'\n');
 
     std::cin >> exit_confirmation;
+    bool was_it_alone = std::cin.get() == '\n'; 
+    if (!was_it_alone) {
+      std::cout << "Please, send only one character." << std::endl;
+      std::cin.ignore(100000, '\n');
+      continue;
+    }
     exit_confirmation = toupper(exit_confirmation);
     if (exit_confirmation == 'N') goto ask_input;
-    std::cout << "exit_confirmation must be either Y or N!" << std::endl;
+    std::cout << "Exit confirmation must be either Y or N!" << std::endl;
   } while (exit_confirmation != 'Y');
 
   std::exit(0);
@@ -164,28 +177,32 @@ std::string get_string(std::string prompt) {
 ask_input:
   std::cout << prompt;
 
-  getline(std::cin, input);
-  if (!std::cin.eof()) {
+  if (getline(std::cin, input))
     return input;
-  }
 
   do {
-    std::cout << "Do you really want to quit? (Y/N)" << std::endl;
+    std::cout << "\nDo you really want to quit? (Y/N)\n> ";
     bool eof = std::cin.eof();
     if (std::cin.fail()) {
       std::cin.clear();
-#ifdef __APPLE__
+#ifndef _WIN32 
       clearerr(stdin);
 #endif
     }
 
     if (!eof && std::cin.peek() != '\n')
-      std::cin.ignore(100,'\n');
+      std::cin.ignore(100000,'\n');
 
     std::cin >> exit_confirmation;
+    bool was_it_alone = std::cin.get() == '\n'; 
+    if (!was_it_alone) {
+      std::cout << "Please, send only one character." << std::endl;
+      std::cin.ignore(100000, '\n');
+      continue;
+    }
     exit_confirmation = toupper(exit_confirmation);
     if (exit_confirmation == 'N') goto ask_input;
-    std::cout << "exit_confirmation must be either Y or N!" << std::endl;
+    std::cout << "Exit confirmation must be either Y or N!" << std::endl;
   } while (exit_confirmation != 'Y');
 
   std::exit(0);

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['child_5fstates_0',['child_states',['../structBoard__state.html#a25c7d233c1ce45ecd2f62d81e6b59ff4',1,'Board_state']]]
+  ['child_5fstates_0',['child_states',['../structBoard__state.html#a3d2fd3911a0d441a1073fd0358e7aec9',1,'Board_state']]]
 ];
