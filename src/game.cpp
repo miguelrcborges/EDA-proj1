@@ -2,6 +2,7 @@
 #include "board.h"
 #include "player.h"
 #include <iostream>
+#include <iomanip>
 #include <fstream>
 #include <string>
 #include <ctime>
@@ -43,7 +44,8 @@ int Game::log_match()
 {
   std::ofstream out;
 	out.open("match logs.txt", std::ios_base::app);
-	out << times->tm_year+1900 << " - " << times->tm_mon+1 << " - " << times->tm_mday << " / " << times->tm_hour << ":" << times->tm_min << " - " << " 1) " << players[0].name;
+	out << std::setfill('0');
+	out << times->tm_year+1900 << " - " << times->tm_mon+1 << " - " << times->tm_mday << " / " << times->tm_hour << ":" << std::setw(2) << times->tm_min << " - 1) " << players[0].name;
 
 	if (players[0].is_computer)
 	{
