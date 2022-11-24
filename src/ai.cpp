@@ -76,7 +76,7 @@ void compute_play(Player &player, Board &board) {
   //   if (current_state.child_states[i] != NULL)
   //     std::cout << "Posição " << i << ": " << current_state.child_states[i]->value << std::endl;
 
-  // Free memory and pick and chooses a move randomly from the ones that have the best score
+  // Frees memory and chooses a move randomly from the ones that have the best score
   current_state.free_child_states();
   column_to_play = possible_indexes[rand() % possible_indexes.size()];
 
