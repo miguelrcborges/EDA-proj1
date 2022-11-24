@@ -67,14 +67,14 @@ int Game::log_match()
 		}
 		if (players[turn % 2].is_computer)
 		{
-			out << " (CPU - " << players[turn %2].depth << ").";
+			out << " (CPU - " << players[turn %2].depth << ')';
 		}
 	}
 	else
 	{
-		out << " - Empate.";
+		out << " - Empate";
 	}
-  out << '\n';
+  out << ".\n";
 	out.close();
 	return 1;
 
