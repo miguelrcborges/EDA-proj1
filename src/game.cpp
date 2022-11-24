@@ -67,7 +67,7 @@ int Game::log_match()
 		}
 		if (players[turn % 2].is_computer)
 		{
-			out << " (CPU - " << players[turn %2].depth << ") \n";
+			out << " (CPU - " << players[turn %2].depth << ").\n";
 		}
 	}
 	else
