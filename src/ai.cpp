@@ -162,8 +162,8 @@ void mini_max(Board_state *board_state, int depth, bool was_my_turn) {
   // Parent value will correspond either to the maximum value of its child nodes, or to the minimum one
   // depending which player is playing.
   //
-  // If is the AI playing, it will be the child with higher value, since it is able to pick the best
-  // path. Otherwise, it will be the one with the minimum value, since we are expecting our opponent
+  // If is the AI playing, it will be the child with highest value, since it is able to pick the best
+  // path. Otherwise, it will be the one with the lowest value, since we are expecting our opponent
   // to play perfectly.
   // (note that if was_my_turn is true, it means it is the opponents turn at the moment) 
   board_state->value = was_my_turn ? INT_MAX : INT_MIN;
