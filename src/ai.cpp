@@ -138,7 +138,7 @@ void mini_max(Board_state *board_state, int depth, bool was_my_turn) {
   // Positive if wins
   // Negative if loses
   //
-  // Being the modulus of the value assigned to the depth makes it so it picks the moves
+  // Being the absolute value of the value assigned to the depth makes it so it picks the moves
   // that win faster, and in case there is only losing moves, picks the one that will take
   // more time to lose (since it will be on a state with higher depth).
   if (board_state->board.check_win(board_state->last_move)) {
