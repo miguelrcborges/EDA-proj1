@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['times_0',['times',['../structGame.html#af03258c09317ebbe2f854fd77c2693bf',1,'Game']]],
-  ['turn_1',['turn',['../structGame.html#aef6ba37517324fc3469dfa65d6f92d21',1,'Game']]]
+  ['slots_0',['slots',['../structBoard.html#ad781ea178e00619035f5d53a1298d757',1,'Board']]],
+  ['symbol_1',['symbol',['../structPlayer.html#a01218f5efc53791ed75c77c99fedf0e2',1,'Player']]],
+  ['symbol_5fto_5fplay_2',['symbol_to_play',['../structBoard__state.html#ac09464b4593f9242280bd174f6dd3d8a',1,'Board_state']]]
 ];

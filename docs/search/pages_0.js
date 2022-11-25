@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['connect4_20_2d_20eda_20projeto_2001_0',['Connect4 - EDA Projeto 01',['../index.html',1,'']]]
+  ['eda_20project_2001_20–_20“connect_20four”_20game_0',['EDA project 01 – “Connect four” game',['../index.html',1,'']]]
 ];

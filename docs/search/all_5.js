@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['is_5fcomputer_0',['is_computer',['../structPlayer.html#a08404b5bee55e32c7c4204fe73ce4c9e',1,'Player']]]
+  ['game_0',['Game',['../structGame.html',1,'']]],
+  ['game_5floop_1',['game_loop',['../structGame.html#a729bdcb8431c940cdfc5b491adf1220c',1,'Game']]]
 ];
