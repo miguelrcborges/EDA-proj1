@@ -1,5 +1,7 @@
 # EDA project 01 – “Connect four” game
 
+[Docs](https://miguelrcborges.github.io/EDA-proj1/)
+
 Group 01 elements:
 * up202004481 – Miguel Rodrigues Carrilho Borges
 * up202005141 - Francisco Rodrigues Camões de Magalhães

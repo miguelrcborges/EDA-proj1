@@ -1,5 +1,5 @@
 #define BOARD_WIDTH 7
-#define BOARD_HEIGHT 7
+#define BOARD_HEIGHT 6
 #define TO_CONNECT 4
 #define PLAYER_ONE_SYMBOL 'X'
 #define PLAYER_TWO_SYMBOL 'O'
