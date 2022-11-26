@@ -6,7 +6,7 @@
 #include "board.h"
 #include <ctime>
 
-/*
+/**
 * Game type - this type handles game-related information like the current players and turn
 * but also the board and time of play.
 */
