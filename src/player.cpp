@@ -9,8 +9,6 @@
 #include <cstdio>
 #endif
 
-extern const int board_side;
-
 Player create_player(char symbol, std::string number) {
   Player player;
   char input;
